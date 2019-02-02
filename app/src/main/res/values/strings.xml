@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">servicio</string>
+    <string name="serviceBoot">serviceBoot</string>
+    <string name="serviceBootActivado">serviceBoot activado</string>
+</resources>
