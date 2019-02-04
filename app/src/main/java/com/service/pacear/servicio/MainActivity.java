@@ -1,8 +1,10 @@
 package com.service.pacear.servicio;
 
 import android.app.ActivityManager;
+import android.content.ActivityNotFoundException;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.media.Image;
 import android.os.Build;
@@ -12,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+
+import java.util.logging.Logger;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -40,12 +44,15 @@ public class MainActivity extends AppCompatActivity {
             intent1.setComponent(new ComponentName("com.miui.securitycenter", "com.miui.permcenter.autostart.AutoStartManagementActivity"));
             startActivity(intent1);
         }
-        if (!isMyServiceRunning(ServicioMusica.class)){ //método que determina si el servicio ya está corriendo o no
+
+
+        /*if (!isMyServiceRunning(ServicioMusica.class)){ //método que determina si el servicio ya está corriendo o no
             Intent serv = new Intent(this,ServicioMusica.class); //serv de tipo Intent
             this.startService(serv); //ctx de tipo Context
             //this.startForegroundService(serv);
         } else {
-        }
+        }*/
+
 
     }
 

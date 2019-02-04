@@ -3,6 +3,8 @@
     package="com.service.pacear.servicio">
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
 
     <application
         android:allowBackup="true"
@@ -23,9 +25,33 @@
             android:enabled="true"
             android:exported="true"></service>
 
-        <receiver android:name=".BootBroadcast">
+        <receiver
+            android:name=".BootBroadcast"
+            android:enabled="true"
+            android:exported="false">
             <intent-filter >
-                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <!--Bluetooth se activa o desactiva-->
+                <!--<action android:name="android.intent.action.BOOT_COMPLETED"
+                                    android:enabled="true"/>
+                                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>&lt;!&ndash;Bluetooth se conecta a dispositivo o desconecta&ndash;&gt;
+                                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED"/>-->
+
+
+
+                <action android:name="android.bluetooth.device.action.ACL_CONNECTED"/>
+                <action android:name="android.bluetooth.adapter.action.ACL_DISCONNECTED"/>
+
+                <action android:name="android.bluetooth.a2dp.profile.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.adapter.action.STATE_CHANGED" />
+                <action android:name="android.bluetooth.device.action.BOND_STATE_CHANGED" />
+                <action android:name="android.bluetooth.device.action.CLASS_CHANGED" />
+                <action android:name="android.bluetooth.headset.profile.action.AUDIO_STATE_CHANGED" />
+                <action android:name="android.bluetooth.headset.profile.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.input.profile.action.CONNECTION_STATE_CHANGED" />
+                <action android:name="android.bluetooth.pan.profile.action.CONNECTION_STATE_CHANGED" />
+
+
             </intent-filter>
         </receiver>
 
